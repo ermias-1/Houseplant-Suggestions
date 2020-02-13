@@ -40,14 +40,17 @@ namespace Houseplant_Suggestions
         {
             int homeTemp = trkTemp.Value;
             bool southFacingWindowAvailable = chkSouthFacing.Checked;
-
-            if (ShownMinWarning && homeTemp == MinTemp)
+            
+            /* Showing a message box for the minimum and maximum temperatures */
+            if ( ShownMinWarning == false && homeTemp == MinTemp)
             {
                 MessageBox.Show(text: "Your home may be too cold for most houseplants", caption: "Information");
+                ShownMinWarning = true;
             }
-            if (ShownMaxWarning && homeTemp == MaxTemp)
+            if ( ShownMaxWarning == false && homeTemp == MaxTemp)
             {
                 MessageBox.Show(text: "Your home may be too hot for most houseplants", caption: "Information");
+                ShownMaxWarning = true;
             }
 
             // Call our method, use return value
@@ -87,7 +90,7 @@ namespace Houseplant_Suggestions
 
         private void lnkHousePlantInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (lblSuggestion.Text == "Plant suggestion here")
+            if (lblSuggestion.Text == "Plant suggest here")
             {
                 ShowWebPage();   // PlanName is optional
             }
@@ -99,7 +102,7 @@ namespace Houseplant_Suggestions
         }
         private void ShowWebPage(string plantName = null) // Method with optional parameter
         {
-            string url = "https://www.houseplant411.com";
+            string url = "https://www.houseplant411.com/";
             if (plantName != null)
             {
                 // Link a specific plant should be in the form "https://www.houseplant411.com/houseplant?hpq=ivy"
@@ -107,6 +110,11 @@ namespace Houseplant_Suggestions
             }
             System.Diagnostics.Process.Start(url);  // Launch web browser, navigate to URL given
    
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LawnGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(597, 450);
             this.Controls.Add(this.lnkHousePlantInfo);
             this.Controls.Add(this.lblSuggestion);
             this.Controls.Add(this.lblTemp);
@@ -111,6 +111,7 @@
             this.Controls.Add(this.chkSouthFacing);
             this.Name = "Form1";
             this.Text = "Houseplant Suggestions";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trkTemp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
